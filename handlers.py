@@ -4,6 +4,7 @@ from telegram import Update, ReplyKeyboardMarkup, KeyboardButton
 
 LIKES, DISLIKES = 0, 0
 
+
 def start(update: Update, context: CallbackContext):
     user = update.message.from_user
 
