@@ -1,0 +1,14 @@
+{
+    "chat_id1": {
+        "likes": 0,
+        "dislikes": 0
+    },
+    "chat_id2": {
+        "likes": 0,
+        "dislikes": 0
+    },
+    "chat_id3": {
+        "likes": 0,
+        "dislikes": 0
+    }
+}
