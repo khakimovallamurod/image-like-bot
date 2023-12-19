@@ -1,14 +1,14 @@
 {
-    "chat_id1": {
-        "likes": 0,
-        "dislikes": 0
+    "1383186462": {
+        "likes": 22,
+        "dislikes": 8,
+        "inline_likes": 1,
+        "inline_dislikes": 2
     },
-    "chat_id2": {
+    "5388846553": {
         "likes": 0,
-        "dislikes": 0
-    },
-    "chat_id3": {
-        "likes": 0,
-        "dislikes": 0
+        "dislikes": 0,
+        "inline_likes": 0,
+        "inline_dislikes": 0
     }
 }

@@ -4,11 +4,16 @@ from telegram.ext import (
     CommandHandler,
     MessageHandler,
     Filters,
+    CallbackQueryHandler
 )
 from handlers import (
     start,
     like,
     dislike,
+    add_clear,
+    inline_like,
+    inline_dislike,
+    inline_like_dislike_clear
 )
 
 
@@ -27,7 +32,12 @@ def main():
     # add message handlers
     dispatcher.add_handler(handler=MessageHandler(filters=Filters.text('👍'), callback=like))
     dispatcher.add_handler(handler=MessageHandler(filters=Filters.text('👎'), callback=dislike))
+    dispatcher.add_handler(handler=MessageHandler(filters=Filters.text('🆑'), callback=add_clear))
 
+    # add calback_query handlers
+    dispatcher.add_handler(handler=CallbackQueryHandler(callback=inline_like,pattern="inline_like"))
+    dispatcher.add_handler(handler=CallbackQueryHandler(callback=inline_dislike,pattern="inline_dislike"))
+    dispatcher.add_handler(handler=CallbackQueryHandler(callback=inline_like_dislike_clear,pattern="inline_clear"))
     # start polling
     updater.start_polling()
     updater.idle()
