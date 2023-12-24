@@ -31,11 +31,11 @@ def start(update: Update, context: CallbackContext):
         user_data = get_user(chat_id=str(user.id))
 
         update.message.reply_html(
-            text=f'<b>likes:</b> {user_data["likes"]}\n<b>dislikes:</b> {user_data["dislikes"]}',
+            text=f'<b>🔥 likes:</b> {user_data["likes"]}\n<b>💣 dislikes:</b> {user_data["dislikes"]}',
             reply_markup=keyboard
         )
         update.message.reply_html(
-            text=f'<b>likes:</b> {user_data["inline_likes"]}\n<b>dislikes:</b> {user_data["inline_dislikes"]}',
+            text=f'<b>🔥 inline likes:</b> {user_data["inline_likes"]}\n<b>💣 inline dislikes:</b> {user_data["inline_dislikes"]}',
             reply_markup=inline_keyboard
         )
 
@@ -49,9 +49,14 @@ def like(update: Update, context: CallbackContext):
 
     user_data = get_user(chat_id=str(user.id))
     update.message.reply_html(
-        text=f'<b>likes:</b> {user_data["likes"]}\n<b>dislikes:</b> {user_data["dislikes"]}',
+        text=f'<b>🔥 likes:</b> {user_data["likes"]}\n<b>💣 dislikes:</b> {user_data["dislikes"]}',
         reply_markup=keyboard
     )
+    update.message.reply_html(
+            text=f'<b>🔥 inline likes:</b> {user_data["inline_likes"]}\n<b>💣 inline dislikes:</b> {user_data["inline_dislikes"]}',
+            reply_markup=inline_keyboard
+    )
+    
 
 def dislike(update: Update, context: CallbackContext):
     user = update.effective_user
@@ -63,8 +68,12 @@ def dislike(update: Update, context: CallbackContext):
 
     user_data = get_user(chat_id=str(user.id))
     update.message.reply_html(
-        text=f'<b>likes:</b> {user_data["likes"]}\n<b>dislikes:</b> {user_data["dislikes"]}',
+        text=f'<b>🔥 likes:</b> {user_data["likes"]}\n<b>💣 dislikes:</b> {user_data["dislikes"]}',
         reply_markup=keyboard
+    )
+    update.message.reply_html(
+            text=f'<b>🔥 inline likes:</b> {user_data["inline_likes"]}\n<b>💣 inline dislikes:</b> {user_data["inline_dislikes"]}',
+            reply_markup=inline_keyboard
     )
 
 def add_clear(update: Update, context: CallbackContext):
@@ -74,10 +83,15 @@ def add_clear(update: Update, context: CallbackContext):
         start(update,context)
         return
     clear(chat_id=str(user.id))
+
     user_data = get_user(chat_id=str(user.id))
     update.message.reply_html(
-        text=f"<b>likes:</b> {user_data['likes']}\n<b>dislikes:</b> {user_data['dislikes']}",
+        text=f"<b>🔥 likes:</b> {user_data['likes']}\n<b>💣 dislikes:</b> {user_data['dislikes']}",
         reply_markup=keyboard
+    )
+    update.message.reply_html(
+            text=f'<b>🔥 inline likes:</b> {user_data["inline_likes"]}\n<b>💣 inline dislikes:</b> {user_data["inline_dislikes"]}',
+            reply_markup=inline_keyboard
     )
 
 def inline_like(update: Update, context: CallbackContext):
@@ -93,7 +107,7 @@ def inline_like(update: Update, context: CallbackContext):
     context.bot.edit_message_text(
         chat_id=user.id,
         message_id=update.callback_query.message.message_id,
-        text=f'<b>inline likes:</b> {user_data["inline_likes"]}\n<b>inline dislikes:</b> {user_data["inline_dislikes"]}',
+        text=f'<b>🔥 inline likes:</b> {user_data["inline_likes"]}\n<b>💣 inline dislikes:</b> {user_data["inline_dislikes"]}',
         reply_markup=inline_keyboard,
         parse_mode='HTML'
     )
@@ -111,7 +125,7 @@ def inline_dislike(update: Update, context: CallbackContext):
     context.bot.edit_message_text(
         chat_id = user.id,
         message_id = update.callback_query.message.message_id,
-        text = f"<b>inline likes:</b> {user_data['inline_likes']}\n<b>inline_dislikes:</b> {user_data['inline_dislikes']}",
+        text = f"<b>🔥 inline likes:</b> {user_data['inline_likes']}\n<b>💣 inline dislikes:</b> {user_data['inline_dislikes']}",
         reply_markup = inline_keyboard,
         parse_mode = "HTML"
     )
@@ -127,7 +141,8 @@ def inline_like_dislike_clear(update: Update, context: CallbackContext):
     context.bot.edit_message_text(
         chat_id = user.id,
         message_id = update.callback_query.message.message_id,
-        text = f"<b>inline likes:</b> {user_data['inline_likes']}\n<b>inline_dislikes:</b> {user_data['inline_dislikes']}",
+        text = f"<b>🔥 inline likes:</b> {user_data['inline_likes']}\n<b>💣 inline_dislikes:</b> {user_data['inline_dislikes']}",
         reply_markup = inline_keyboard,
         parse_mode = "HTML"
     )
+
