@@ -15,11 +15,11 @@ keyboard = ReplyKeyboardMarkup(
 inline_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="👍", callback_data = "inline_like"), 
-            InlineKeyboardButton(text="👎", callback_data="inline_dislike")
+            InlineKeyboardButton(text="👍", callback_data = "type_emoji:inline_like"), 
+            InlineKeyboardButton(text="👎", callback_data="type_emoji:inline_dislike")
         ],
         [
-            InlineKeyboardButton(text="🆑", callback_data="inline_clear")
+            InlineKeyboardButton(text="🆑", callback_data="type_emoji:inline_clear")
         ]
     ]
 )
